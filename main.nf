@@ -3688,6 +3688,7 @@ process VEP {
     when: 'vep' in tools
 
     script:
+    // reduceVCF removes .ann .vcf .gz but is it getting a .tsv when running as a one run pipeline
     reducedVCF = reduceVCF(vcf.fileName)
     genome = params.genome == 'smallGRCh37' ? 'GRCh37' : params.genome
 
